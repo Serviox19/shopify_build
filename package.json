@@ -1,0 +1,47 @@
+{
+  "name": "shopify_master",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack --mode development",
+    "build:production": "webpack --mode production",
+    "watch": "webpack --mode development --watch",
+    "theme-watch": "theme watch --notify=/tmp/.theme_ready",
+    "theme-deploy": "theme deploy",
+    "theme-deploy:production": "theme deploy --env=production",
+    "theme-download": "theme download",
+    "theme-download:production": "theme download -e production",
+    "lint:css": "stylelint \"src/styles/**/*.scss\" --formatter verbose",
+    "fix:css": "stylelint --fix \"src/styles/**/*.scss\" --formatter verbose",
+    "lint:js": "eslint \"src/scripts/**/*.js\"",
+    "fix:js": "eslint \"src/scripts/**/*.js\" --fix",
+    "test": "stylelint --fix \"src/styles/**/*.scss\" && eslint \"scripts/**/*.js\""
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "^9.8.4",
+    "browser-sync": "^2.26.7",
+    "browser-sync-webpack-plugin": "^2.2.2",
+    "copy-webpack-plugin": "^6.0.2",
+    "css-loader": "^3.6.0",
+    "cssnano": "^4.1.10",
+    "mini-css-extract-plugin": "^0.9.0",
+    "path": "^0.12.7",
+    "postcss-loader": "^3.0.0",
+    "postcss-preset-env": "^6.7.0",
+    "sass-loader": "^8.0.2",
+    "style-loader": "^1.2.1",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0",
+    "yaml-reader": "^1.0.3"
+  },
+  "dependencies": {
+    "@babel/polyfill": "^7.10.1",
+    "jquery": "^3.5.1",
+    "jquery-zoom": "^1.7.21",
+    "swiper": "^5.4.5"
+  }
+}
