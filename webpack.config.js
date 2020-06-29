@@ -6,11 +6,7 @@ const storeURL = config.development.store;
 const webpack = require('webpack');
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-const Shopify = require('shopify-api-node');
-
-// webpack build
-const path = require('path');
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+// const Shopify = require('shopify-api-node');
 
 
 // webpack build
@@ -163,7 +159,8 @@ module.exports = {
     ]
   },
   plugins: [
-    new CopyWebpackPlugin([{
+    new CopyWebpackPlugin({
+      patterns: [{
         from: 'src/templates',
         to: path.resolve(__dirname, 'dist/templates'),
         toType: 'dir'
@@ -197,8 +194,8 @@ module.exports = {
         from: path.resolve(__dirname, 'src/assets'),
         to: path.resolve(__dirname, 'dist/assets/[name].[ext]'),
         toType: 'template'
-      }
-    ], {
+      }]
+    },{
       logLevel: 'warn',
       copyUnmodified: false
     }),

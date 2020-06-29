@@ -37,11 +37,18 @@
     <meta name="description" content="{{ page_description | escape }}">
   {%- endif -%}
 
-  {% include 'social-meta-tags' %}
+  <!--// content_for_header - BEG //-->
+  {{ content_for_header }}
+  <!--// content_for_header - END //-->
 
-  {{ 'theme.scss.css' | asset_url | stylesheet_tag }}
+  {% include 'social-meta-tags' %}
+  {{ 'compiled.css' | asset_url | stylesheet_tag }}
+  <!-- {{ 'fonts.css' | asset_url | stylesheet_tag }} -->
+  <!-- include compiled css here and css variables snippet -->
 
   <script>
+    document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
+
     var theme = {
       breakpoints: {
         medium: 750,
@@ -96,23 +103,19 @@
       }
     }
 
-    document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
+    <!--// Not sure what this does, check it out  //-->
+    {% if template.directory == 'customers' %}
+      theme.allCountryOptionTags = {{ all_country_option_tags | json }};
+    {% endif %}
+
   </script>
 
-  {%- if request.page_type contains 'customers/' -%}
-    <script src="{{ 'shopify_common.js' | shopify_asset_url }}" defer="defer"></script>
-  {%- endif -%}
 
-  <script src="{{ 'lazysizes.js' | asset_url }}" async="async"></script>
-  <script src="{{ 'vendor.js' | asset_url }}" defer="defer"></script>
-  <script src="{{ 'theme.js' | asset_url }}" defer="defer"></script>
+  {{ 'compiled.js' | asset_url | script_tag }}
 
-  {{ content_for_header }}
 </head>
 
 <body class="template-{{ request.page_type | handle }}">
-
-  <a class="in-page-link visually-hidden skip-link" href="#MainContent">{{ 'general.accessibility.skip_to_content' | t }}</a>
 
   {%- if settings.enable_ajax -%}
     {% include 'cart-popup' %}
@@ -120,18 +123,10 @@
 
   {% section 'header' %}
 
-  <div class="page-container drawer-page-content" id="PageContainer">
+  {{ content_for_layout }}
 
-    <main class="main-content js-focus-hidden" id="MainContent" role="main" tabindex="-1">
-      {{ content_for_layout }}
-    </main>
+  {% section 'footer' %}
 
-    {% section 'footer' %}
 
-    <div id="slideshow-info" class="visually-hidden" aria-hidden="true">
-      {{- 'sections.slideshow.navigation_instructions' | t -}}
-    </div>
-
-  </div>
 </body>
 </html>
