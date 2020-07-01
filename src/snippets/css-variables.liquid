@@ -1,0 +1,23 @@
+<style>
+
+  :root {
+    --color-primary: {{ settings.color_brand }};
+    --color-secondary: {{ settings.color_brand_secondary }};
+    --color-tirtiary: {{ settings.color_brand_additional }};
+    --color-accent: {{ settings.color_accent }};
+    --color-accent-alt: {{ settings.color_accent_alt }};
+    --color-body-text: {{ settings.color_body_text }};
+    --color-main-background: {{ settings.color_main_bg }};
+    --color-main-background-secondary: {{ settings.color_main_bg_secondary }};
+    --color-main-background-alternate: {{ settings.color_main_bg_alternate }};
+    --color-text-alternate: {{settings.color_text_alternate}};
+    --color-border: {{ settings.color_body_text | color_lighten: 50 }};
+    --font-base-size: {{ settings.base_font_size }};
+    --font-heading: {{ settings.font_heading }};
+    --font-body: {{ settings.font_body }};
+    --font-body-weight: {{ settings.font_body.weight }};
+    --font-body-style: {{ settings.font_body.style }};
+    --font-body-bold-weight: {{ font_body_bold.weight | default: 'bold' }};
+  }
+
+</style>

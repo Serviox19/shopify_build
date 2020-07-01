@@ -45,6 +45,7 @@
   {{ 'compiled.css' | asset_url | stylesheet_tag }}
   <!-- {{ 'fonts.css' | asset_url | stylesheet_tag }} -->
   <!-- include compiled css here and css variables snippet -->
+  {% include 'css-variables' %}
 
   <script>
     document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
