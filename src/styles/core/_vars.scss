@@ -1,0 +1,86 @@
+$color-primary: var(--color-primary);
+$color-secondary: var(--color-secondary);
+$color-alternate: var(--color-tirtiary);
+$color-accent: var(--color-accent);
+$color-accent-alt: var(--color-accent-alt);
+$color-text: var(--color-body-text);
+$color-background: var(--color-main-background);
+$color-background-secondary: var(--color-main-background-secondary);
+$color-background-alternate: var(--color-main-background-alternate);
+$color-text-alternate: var(--color-text-alternate);
+
+$color-link: var(--color-primary);
+$color-link-hover: var(--color-secondary);
+
+$font-size: var(--font-base-size);
+$font-heading: var(--font-heading);
+$font-body: var(--font-body);
+
+
+
+
+
+// Border colors
+$color-border: #eee;
+$color-border-form: #eee;
+
+// Helper colors for form error states
+$color-disabled: #f4f4f4;
+$color-disabled-border: #f4f4f4;
+$color-error: #d20000;
+$color-error-message-list: #651818;
+$color-error-bg: #fff8f8;
+$color-success: #1f873d;
+$color-success-bg: #f8fff9;
+
+// Forms
+$color-form-text: #333;
+$color-error-input-text: $color-error;
+$input-padding-top-bottom: 10px;
+$input-padding-left-right: 18px;
+$input-padding-top-bottom-small: 8px;
+$input-padding-left-right-small: 15px;
+$input-group-height: 46px;
+$input-group-height-small: 42px;
+$input-border-width: 1px;
+
+// Social icons
+$color-facebook: #3b5998;
+$color-twitter: #00aced;
+$color-pinterest: #cb2027;
+
+//================ Sizing Variables ================
+$width-site: 1200px;
+$gutter-site: 55px;
+$gutter-site-mobile: 22px;
+$section-spacing: 55px;
+$section-spacing-small: 35px;
+$border-radius: 2px;
+$icon-size: 20px;
+$connected-submit-size: $icon-size * 2.5;
+
+//================ Footer Variables ================
+$footer-spacing-extra-small: 5px;
+$footer-spacing-small: 15px;
+$footer-wrapper-spacing: 18px;
+$footer-hr-bottom-spacing: 20px;
+$footer-spacing-medium: 25px;
+$footer-spacing-large: 45px;
+
+//================ Z-Index ================
+$z-index-base: 1;
+$z-index-dropdown: 7;
+$z-index-sub-nav: 8;
+$z-index-drawer: 9;
+$z-index-announcement-bar: 10;
+$z-index-mobile-nav: 11;
+$z-index-search-bar: 999;
+$z-index-predictive-search-wrapper: 1000;
+$z-index-skip-to-content: 10000; // really high to be safe of app markup
+
+
+//================ Variables ================
+$common-search-input-padding: 12px;
+$search-form-clear-size: 24px;
+$search-clear-button-hover: rgba(#808080, .2);
+$search-bar-button-hover: rgba(#808080, .6);

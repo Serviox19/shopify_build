@@ -1,0 +1,28 @@
+//============================================================================
+//Grid Breakpoints and Class Names
+//  - Do not change the variable names
+//  - Breakpoint pixel values are used in the window.theme.breakpoints object
+//  - These values are hard-copied within `search.js` and must be kept in sync!
+//==============================================================================
+$grid-medium: 750px;
+$grid-large: 990px;
+$grid-widescreen: 1400px;
+$grid-gutter: 30px;
+$grid-gutter-mobile: 22px;
+
+$small: 'small';
+$medium: 'medium';
+$medium-down: 'medium-down';
+$medium-up: 'medium-up';
+$large: 'large';
+$large-down: 'large-down';
+$large-up: 'large-up';
+$widescreen: 'widescreen';
+
+//============================================================================
+//Generate breakpoint-specific column widths and push classes
+//- Default column widths: $grid-breakpoint-has-widths: ($small, $medium-up);
+//- Default is no push classes
+//==============================================================================
+$grid-breakpoint-has-widths: ($small, $medium-up);
+$grid-breakpoint-has-push: ($small, $medium-up);

@@ -1,17 +1,20 @@
 @charset 'UTF-8';
 
-@import "core/vars";
-@import "core/mixins";
-@import "core/base";
+@import 'core/vars';
+@import 'core/mixins';
+@import 'core/grid';
+@import 'core/base';
 
 
-// // Pages
-// @import "sections/header";
-// @import "sections/footer";
+// Sections
+@import 'sections/header';
+@import 'sections/footer';
 // @import "sections/product";
 // @import "sections/collection";
 // @import "sections/cart";
-//
+
+
+
 // // Snippets
 // @import "snippets/hero-image";
 // @import "snippets/image-cta";

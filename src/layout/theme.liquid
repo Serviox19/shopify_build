@@ -43,8 +43,6 @@
 
   {% include 'social-meta-tags' %}
   {{ 'compiled.css' | asset_url | stylesheet_tag }}
-  <!-- {{ 'fonts.css' | asset_url | stylesheet_tag }} -->
-  <!-- include compiled css here and css variables snippet -->
   {% include 'css-variables' %}
 
   <script>
@@ -103,11 +101,6 @@
         predictiveSearchShowVendor: {{ settings.predictive_search_show_vendor | json }}
       }
     }
-
-    <!--// Not sure what this does, check it out  //-->
-    {% if template.directory == 'customers' %}
-      theme.allCountryOptionTags = {{ all_country_option_tags | json }};
-    {% endif %}
 
   </script>
 
