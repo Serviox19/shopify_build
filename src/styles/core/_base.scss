@@ -4,31 +4,36 @@
   box-sizing: border-box;
 }
 
-body, html {
-  margin: 0;
-  padding: 0;
+body,
+html {
+  background: $color-background;
   font-family: 'Helvetica Neue', 'Avenir', sans-serif;
   font-size: $font-size;
   font-weight: 400;
-
-  background: $color-background;
-}
-
-button, input {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
+  margin: 0;
+  padding: 0;
 }
 
 html {
   overflow-x: hidden;
 }
 
-h1, h2, h3, h4, h5, h6 {
+button,
+input {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   margin: 0;
   padding: 0;
 }
-
 
 
 article,
@@ -53,7 +58,6 @@ textarea,
 button,
 select {
   -webkit-font-smoothing: antialiased;
-  -webkit-text-size-adjust: 100%;
 }
 
 a {
@@ -65,8 +69,8 @@ em {
 }
 
 img {
-  max-width: 100%;
   border: 0;
+  max-width: 100%;
 }
 
 button,
@@ -106,15 +110,15 @@ input {
   &[type="number"],
   &[type="email"],
   &[type="password"] {
-    -webkit-appearance: none;
     -moz-appearance: none;
+    -webkit-appearance: none;
   }
 }
 
 table {
-  width: 100%;
   border-collapse: collapse;
   border-spacing: 0;
+  width: 100%;
 }
 
 td,
@@ -122,10 +126,16 @@ th {
   padding: 0;
 }
 
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+}
+
 textarea {
-  overflow: auto;
-  -webkit-appearance: none;
   -moz-appearance: none;
+  -webkit-appearance: none;
+  overflow: auto;
 }
 
 
@@ -137,4 +147,28 @@ label,
 select,
 textarea {
   touch-action: manipulation;
+}
+
+a[href^="tel"] {
+  color: inherit;
+}
+
+// Only show when JS is not supported
+.no-js:not(html) {
+  display: none;
+
+  .no-js & {
+    display: block;
+  }
+}
+
+// Only show when JS is supported
+.js {
+  .no-js & {
+    display: none;
+  }
+}
+
+.hide {
+  display: none;
 }

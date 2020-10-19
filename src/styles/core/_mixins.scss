@@ -1,222 +1,66 @@
-// /*================ Media Query Mixin ================*/
-// @mixin media-query($media-query) {
-//   $breakpoint-found: false;
+
+@mixin font-heading($weight: 400) {
+  font-family: $font-heading;
+  font-weight: $weight;
+  font-style: normal;
+}
+
+// Weights: 400, 700
+// Style: normal, italic
+@mixin font-body($weight: 400, $style: normal) {
+  font-family: $font-body;
+  font-weight: $weight;
+  font-style: $style;
+}
+
+
 //
-//   @each $breakpoint in $grid-breakpoints {
-//     $name: nth($breakpoint, 1);
-//     $declaration: nth($breakpoint, 2);
+//  Breakpoints
 //
-//     @if $media-query == $name and $declaration {
-//       $breakpoint-found: true;
-//
-//       @media only screen and #{$declaration} {
-//         @content;
-//       }
-//     }
-//   }
-//
-//   @if $breakpoint-found == false {
-//     @warn 'Breakpoint "#{$media-query}" does not exist';
-//   }
-// }
-//
-// /*================ Responsive Show/Hide Helper ================*/
-// @mixin responsive-display-helper($grid-breakpoint-type: '') {
-//   // sass-lint:disable no-important
-//   .#{$grid-breakpoint-type}show {
-//     display: block !important;
-//   }
-//
-//   .#{$grid-breakpoint-type}hide {
-//     display: none !important;
-//   }
-// }
-//
-//
-// /*================ Responsive Text Alignment Helper ================*/
-// @mixin responsive-text-align-helper($grid-breakpoint-type: '') {
-//   // sass-lint:disable no-important
-//   .#{$grid-breakpoint-type}text-left {
-//     text-align: left !important;
-//   }
-//
-//   .#{$grid-breakpoint-type}text-right {
-//     text-align: right !important;
-//   }
-//
-//   .#{$grid-breakpoint-type}text-center {
-//     text-align: center !important;
-//   }
-// }
-//
-// @mixin placeholder-text($color: $color-text-field-text, $opacity: 0.6) {
-//   color: $color;
-//   opacity: $opacity;
-// }
-//
-// @mixin error-placeholder-text($color: $color-error-input-text, $opacity: 0.5) {
-//   color: $color;
-//   opacity: $opacity;
-// }
-//
-// @mixin transform($transform) {
-//   @include prefix(transform, $transform, ms webkit spec);
-// }
-//
-// @mixin transition($transition) {
-//   @include prefix(transition, $transition, ms webkit spec);
-// }
-//
-// @mixin gradient($side, $from, $to) {
-//   background: -ms-linear-gradient($side, $from 0%, $to 100%);
-//   background: linear-gradient(to $side, $from 0%, $to 100%);
-// }
-//
-// @mixin spinner($size: $icon-size, $color: $color-btn-primary-text) {
-//   content: '';
-//   display: block;
-//   width: $size;
-//   height: $size;
-//   position: absolute;
-//   margin-left: - $size / 2;
-//   margin-top: - $size / 2;
-//   border-radius: 50%;
-//   border: 3px solid $color;
-//   border-top-color: transparent;
-// }
-//
-// // Toggle visibility + opacity + pointer-events
-// // @param {Boolean} $state - Switch visibility "on" `(true)` or "off" `(false)`. Defaults to `true`.
-// @mixin visible($isVisible: true) {
-//   @if ($isVisible) {
-//     opacity: 1;
-//     visibility: visible;
-//     pointer-events: auto;
-//   } @else {
-//     opacity: 0;
-//     visibility: hidden;
-//     pointer-events: none;
-//   }
-// }
-//
-// @mixin visually-hidden() {
-//   // sass-lint:disable no-important
-//   position: absolute !important;
-//   overflow: hidden;
-//   clip: rect(0 0 0 0);
-//   height: 1px;
-//   width: 1px;
-//   margin: -1px;
-//   padding: 0;
-//   border: 0;
-// }
-//
-// @mixin visually-shown() {
-//   // sass-lint:disable no-important
-//   position: inherit !important;
-//   overflow: auto;
-//   clip: auto;
-//   width: auto;
-//   height: auto;
-//   margin: 0;
-// }
-//
-// @mixin overlay($z-index: null) {
-//   &::before {
-//     content: '';
-//     position: absolute;
-//     top: 0;
-//     right: 0;
-//     bottom: 0;
-//     left: 0;
-//     background-color: $color-image-overlay;
-//     opacity: $opacity-image-overlay;
-//
-//     @if ($z-index) {
-//       z-index: $z-index;
-//     }
-//   }
-// }
-//
-// @mixin default-focus-ring() {
-//   outline: 1px dotted #212121;
-//   outline: 5px auto -webkit-focus-ring-color;
-// }
-//
-// @mixin unstyled-button {
-//   appearance: none;
-//   margin: 0;
-//   padding: 0;
-//   background: none;
-//   border: none;
-//   font-size: inherit;
-//   line-height: inherit;
-//   cursor: pointer;
-// }
-//
-// @mixin product-vendor {
-//   color: $color-body-text;
-//   font-size: 0.9em;
-//   font-weight: $font-weight-body;
-//   text-transform: uppercase;
-//   letter-spacing: 1px;
-// }
-//
-// /*============================================================================
-//   Flexbox prefix mixins from Bourbon
-//     https://github.com/thoughtbot/bourbon/blob/master/app/assets/stylesheets/css3/_flex-box.scss
-// ==============================================================================*/
-//
-// @mixin display-flexbox() {
-//   display: -webkit-flex;
-//   display: -ms-flexbox;
-//   display: flex;
-//   // necessary for ie10
-//   width: 100%;
-// }
-//
-// @mixin flex-wrap($value: nowrap) {
-//   @include prefix(flex-wrap, $value, webkit moz ms spec);
-// }
-//
-// @mixin flex-direction($value) {
-//   @include prefix(flex-direction, $value, webkit moz ms spec);
-// }
-//
-// @mixin align-items($value: stretch) {
-//   $alt-value: $value;
-//
-//   @if $value == 'flex-start' {
-//     $alt-value: start;
-//   } @else if $value == 'flex-end' {
-//     $alt-value: end;
-//   }
-//
-//   // sass-lint:disable no-misspelled-properties
-//   -ms-flex-align: $alt-value;
-//   @include prefix(align-items, $value, webkit moz ms o spec);
-// }
-//
-// @mixin flex($value: 0 1 auto) {
-//   @include prefix(flex, $value, webkit moz ms spec);
-// }
-//
-// @mixin flex-basis($width: auto) {
-//   // sass-lint:disable no-misspelled-properties
-//   -ms-flex-preferred-size: $width;
-//   @include prefix(flex-basis, $width, webkit moz spec);
-// }
-//
-// @mixin align-self($align: auto) {
-//   // sass-lint:disable no-misspelled-properties
-//   -ms-flex-item-align: $align;
-//   @include prefix(align-self, $align, webkit spec);
-// }
-//
-// @mixin align-content($align: center) {
-//   @include prefix(align-content, $align, webkit ms spec);
-// }
-//
-// @mixin justify-content($justify: flex-start) {
-//   @include prefix(justify-content, $justify, webkit ms spec);
-// }
+@mixin bp($point) {
+  @if $point == Baby { // 320
+    @media (min-width: 20.0625rem) { @content; }
+  }
+  @if $point == Toddler { // 375
+    @media (min-width: 23.4375rem) { @content; }
+  }
+  @if $point == Kid { // 600
+    @media (min-width: 37.5rem) { @content; }
+  }
+  @else if $point == Mama { // 767
+    @media (min-width: 47.9375rem) { @content; }
+  }
+  @else if $point == WhoMama { // 900
+    @media (min-width: 56.25rem) { @content; }
+  }
+  @else if $point == BigMama { // 960
+    @media (min-width: 60rem) { @content; }
+  }
+  @else if $point == Uncle { // 996
+    @media (min-width: 65.25rem) { @content; }
+  }
+  @else if $point == UnclePapa { // 1000
+    @media (min-width: 62.5rem) { @content; }
+  }
+  @else if $point == Papa { // 1080
+    @media (min-width: 67.5rem) { @content; }
+  }
+  @else if $point == BigPapa { // 1136
+    @media (min-width: 71rem) { @content; }
+  }
+  @else if $point == Grand { // 1200
+    @media (min-width: 75rem) { @content; }
+  }
+  @else if $point == GrandDude { // 1280
+    @media (min-width: 80rem) { @content; }
+  }
+  @else if $point == SupaDude { // 1400
+    @media (min-width: 90.25rem) { @content; }
+  }
+  @else if $point == Supa { // 1600
+    @media (min-width: 100rem) { @content; }
+  }
+  @else if $point == Tablet {
+    @media (min-width: 768px) and (max-width: 1023px) { @content; }
+  }
+}
